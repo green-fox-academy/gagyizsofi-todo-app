@@ -9,19 +9,19 @@ import java.util.ArrayList;
 public class AddNew {
 
   public static void taskToDo(String[] taskArray) {
-    ArrayList<String> task = new ArrayList<>();
-    Path todoTxt = Paths.get("assets/todo.txt");
+      ArrayList<String> task = new ArrayList<>();
+      Path todoTxt = Paths.get("assets/todo.txt");
 
-    task.add("U");
-    task.add(taskArrayToString(taskArray));
+      task.add("U");
+      task.add(taskArrayToString(taskArray));
 
-    try {
-      Files.write(todoTxt, task, StandardOpenOption.APPEND);
-    } catch (java.nio.file.NoSuchFileException e) {
-      overwriteTaskList(task);
-    } catch (Exception f) {
-      f.printStackTrace();
-    }
+      try {
+        Files.write(todoTxt, task, StandardOpenOption.APPEND);
+      } catch (java.nio.file.NoSuchFileException e) {
+        overwriteTaskList(task);
+      } catch (Exception f) {
+        f.printStackTrace();
+      }
   }
 
   public static void overwriteTaskList(ArrayList<String> task) {
