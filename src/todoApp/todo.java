@@ -1,4 +1,9 @@
 package todoApp;
+import static todoApp.AddNew.taskToDo;
+import static todoApp.Check.checkIndexSwitch;
+import static todoApp.Check.listCheck;
+import static todoApp.ListAll.listTasks;
+import static todoApp.Remove.listRemoveIndexSwitch;
 
 public class todo {
   public static void main(String[] args) {
@@ -29,9 +34,9 @@ public class todo {
 
   public static void case1(String a) {
     switch (a) {
- //     case "-l":
-//        listTasks();
-//        return;
+      case "-l":
+        listTasks();
+        return;
       case "-a":
         System.out.println("Unable to add: no task provided");
         return;
@@ -42,24 +47,24 @@ public class todo {
         System.out.println("Unable to check: no index provided");
         return;
       default:
-        System.out.println("\"" + a + "\" is not recognized as a command.");
+        System.out.println("Unsupported argument.");
     }
   }
 
   public static void caseDefault(String[] a) {
     switch (a[0]) {
       case "-a":
-        TaskToDo newTaskToDo = new TaskToDo(a);
+        taskToDo(a);
         return;
- //     case "-r":
-//        listRemove(a);
-//        return;
-//      case "-c":
-//        listCheck(a);
-//        return;
-//      default:
-//        System.out.println("\"" + a.arrayContent() + "\" is not recognized as a command.");
+      case "-r":
+        listRemoveIndexSwitch(a);
+        return;
+      case "-c":
+        checkIndexSwitch(a);
+        return;
+      default:
+        System.out.println("Unsupported argument");
+        printUsage();
     }
-
   }
 }
